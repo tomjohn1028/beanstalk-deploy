@@ -166,6 +166,7 @@ function deployNewVersion(application, environmentName, versionLabel, versionDes
         if (result.statusCode === 200) {
             throw new Error(`Version ${versionLabel} already exists in S3!`);
         }
+        console.log("checking result status")
         expect(404, result);
         console.log(`Uploading file to bucket ${bucket}`);
         return uploadFileToS3(bucket, s3Key, fileBuffer);
