@@ -159,7 +159,7 @@ function deployNewVersion(application, environmentName, versionLabel, versionDes
             bucket = result.data.CreateStorageLocationResponse.CreateStorageLocationResult.S3Bucket;
         }
 
-        console.log(`Uploading file to bucket ${bucket}`);
+        console.log(`Checking if file exists in bucket ${bucket}`);
 
         return checkIfFileExistsInS3(bucket, s3Key);
     }).then(result => {
@@ -167,6 +167,7 @@ function deployNewVersion(application, environmentName, versionLabel, versionDes
             throw new Error(`Version ${versionLabel} already exists in S3!`);
         }
         expect(404, result);
+        console.log(`Uploading file to bucket ${bucket}`);
         return uploadFileToS3(bucket, s3Key, fileBuffer);
     }).then(result => {
         expect(200, result);
