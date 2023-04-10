@@ -335,6 +335,7 @@ function main() {
     console.log('Existing bucket Name: ' + existingBucketName);
     console.log('      AWS Access Key: ' + awsApiRequest.accessKey.length + ' characters long, starts with ' + awsApiRequest.accessKey.charAt(0));
     console.log('      AWS Secret Key: ' + awsApiRequest.secretKey.length + ' characters long, starts with ' + awsApiRequest.secretKey.charAt(0));
+    console.log('   AWS Session Token: ' + awsApiRequest.sessionToken.length + ' characters long, starts with ' + awsApiRequest.sessionToken.charAt(0));
     console.log(' Wait for deployment: ' + waitUntilDeploymentIsFinished);
     console.log('  Recovery wait time: ' + waitForRecoverySeconds);
     console.log('');
