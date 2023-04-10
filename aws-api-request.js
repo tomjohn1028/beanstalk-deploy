@@ -111,6 +111,7 @@ function awsApiRequest(options, retryAttempt = 0) {
         reqHeaders.Authorization = authHeader;
 
         //Now, lets finally do a HTTP REQUEST!!!
+        console.log(`Making AWS request:\nPath: ${path}\nMethod: ${method}`);
         request(method, encodeURI(path), reqHeaders, querystring, payload, retryAttempt, (err, result) => {
             if (err) {
                 reject(err);
